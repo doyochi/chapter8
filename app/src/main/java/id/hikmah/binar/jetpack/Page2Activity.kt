@@ -5,30 +5,30 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 
-class MainActivity : AppCompatActivity() {
+class Page2Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_page2)
         setContent {
-            DecoratedComposablePreview()
+            TitleText(title = "Hello World")
         }
     }
 
+    @Preview(showSystemUi = false)
     @Composable
-    fun SimpleComposable(){
-        Text ("Hello World")
+    fun TitleText(title: String = "test") {
+        Text(
+            text = title, color = Color.Blue
+        )
     }
 
-//    @Preview(shadowSystemUi = true)
+    @Preview(showSystemUi = false)
     @Composable
-    fun DecoratedComposablePreview(){
-        Text("Hello World")
-    }
-
-    @Composable
-    fun ComposablePreview() {
-        SimpleComposable()
+    fun TitleHello() {
+        Text("Hello")
+        TitleText("Hello World")
     }
 }
