@@ -51,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
 
             Spacer(modifier = Modifier.height(32.dp))
 
-            // Logo
+            // Logohshdfjs
             Image(
                 painter = painterResource(id = R.drawable.ic_launcher_background),
                 contentDescription = "Logo",
