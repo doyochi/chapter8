@@ -3,8 +3,9 @@ package id.hikmah.binar.jetpack
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
@@ -12,12 +13,15 @@ import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 class MainActivity : AppCompatActivity() {
@@ -27,10 +31,15 @@ class MainActivity : AppCompatActivity() {
             DecoratedComposablePreview()
         }
     }
-    
+
     @Composable
     fun SimpleComposable(){
-        Column() {
+        Column(
+            modifier = Modifier
+                .verticalScroll(rememberScrollState()),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             Text(
                 "Hello World",
                 fontSize = 12.sp,
@@ -39,13 +48,15 @@ class MainActivity : AppCompatActivity() {
                 fontStyle = FontStyle.Italic,
                 fontWeight = FontWeight.Bold
             )
+            Spacer(modifier = Modifier.height(8.dp))
+//            SimpleCardComponent()
             Button(onClick = { /*TODO*/ }) {
                 Text(text = "Ini Button")
             }
             TextButton(onClick = { /*TODO*/ }) {
                 Text(text = "Ini text button")
             }
-            TextField(value = "ini text fiels", onValueChange = {})
+            TextField(value = "ini text field", onValueChange = {})
         }
         Text(
             "Hello World",
